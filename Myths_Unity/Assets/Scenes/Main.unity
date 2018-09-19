@@ -1022,11 +1022,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4330386199160880410, guid: 843e888f38f42481a9267d935fc11593, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4330386199160880410, guid: 843e888f38f42481a9267d935fc11593, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4330386199160880410, guid: 843e888f38f42481a9267d935fc11593, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1068,13 +1068,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4330386199160880404, guid: 843e888f38f42481a9267d935fc11593, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4330386199160880404, guid: 843e888f38f42481a9267d935fc11593, type: 3}
-      propertyPath: m_Constraints
-      value: 4
+    - target: {fileID: 4330386199160880408, guid: 843e888f38f42481a9267d935fc11593, type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843e888f38f42481a9267d935fc11593, type: 3}
