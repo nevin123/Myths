@@ -5,23 +5,45 @@ using UnityEngine;
 [RequireComponent(typeof(CreatureMotor))]
 public class PlayerController : MonoBehaviour {
 
+	float gravity;
+	float jumpVelocity;
+	float velocityXSmoothing;
 	CreatureMotor motor;
 
-	float gravity = -20;
 	Vector3 velocity;
 
 	public float moveSpeed = 6;
+	public float jumpHeight = 2;
+	public float timeToJumpApex = 0.5f ;
+
+	public float accelerationTimeAirborne = 0.2f;
+	public float accelerationTimeGrounded = 0.1f;
+	
 
 	void Start() {
 		motor = GetComponent<CreatureMotor>();
+
+		gravity = -(2 * jumpHeight)/Mathf.Pow(timeToJumpApex,2);
+		jumpVelocity = Mathf.Abs(gravity * timeToJumpApex);
 	}
 
 	float lastDirection = 0;
 
 	void Update() {
+		if(motor.collisions.above || motor.collisions.below) {
+			velocity.y = 0;
+		}
+
 		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-		velocity.x = input.x * moveSpeed;
+		if(Input.GetKeyDown(KeyCode.Space) && motor.collisions.below) {
+			velocity.y = jumpVelocity;
+		}
+
+
+		float targetVelocityX = input.x * moveSpeed;
+		
+		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (motor.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 		velocity.y += gravity * Time.deltaTime;
 		motor.Move(velocity * Time.deltaTime);
 
