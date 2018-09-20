@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Creature))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class CreatureMotor : MonoBehaviour {
+public class CreatureMotor : RaycastController {
 
     public float direction = 0;
     float newDirection = 0;
@@ -18,25 +18,7 @@ public class CreatureMotor : MonoBehaviour {
 
     Creature creature;
 
-    BoxCollider2D col;
-    RaycastOrigins raycastOrigins;
     public CollisionInfo collisions;
-
-    public LayerMask collisionMask;
-
-    public int horizontalRayCount = 4;
-    public int verticalRayCount = 4;
-
-    float horizontalRaySpacing;
-    float verticalRaySpacing;
-
-    const float skinWidth = 0.015f;
-
-    void Start() {
-        creature = GetComponent<Creature>();
-        col = GetComponent<BoxCollider2D>();
-        CalculateRaySpacing();
-    }
 
 	public void Move(Vector3 velocity) {
         UpdateRaycastOrigins();
@@ -182,34 +164,6 @@ public class CreatureMotor : MonoBehaviour {
                 }
             }
         }
-    }
-    
-    void UpdateRaycastOrigins() {
-
-        Debug.Log(horizontalRayCount);
-        Bounds bounds = col.bounds;
-        bounds.Expand(skinWidth * -2);
-
-        raycastOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
-        raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
-        raycastOrigins.topLeft = new Vector2(bounds.min.x, bounds.max.y);
-        raycastOrigins.topRight = new Vector2(bounds.max.x, bounds.max.y);
-    }
-
-    void CalculateRaySpacing() {
-        Bounds bounds = col.bounds;
-        bounds.Expand (skinWidth * -2);
-
-        horizontalRayCount = Mathf.Clamp(horizontalRayCount, 2, int.MaxValue);
-        verticalRayCount = Mathf.Clamp(verticalRayCount, 2, int.MaxValue);
-
-        horizontalRaySpacing = bounds.size.y / (horizontalRayCount - 1);
-        verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
-    }
-
-    struct RaycastOrigins {
-        public Vector2 topLeft, topRight;
-        public Vector2 bottomLeft, bottomRight;
     }
 
     public struct CollisionInfo {
