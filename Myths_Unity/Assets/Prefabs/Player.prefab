@@ -72,6 +72,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107fe035d714449b395e1f847afce2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallJumpClimb: {x: 7.5, y: 16}
+  wallJumpOff: {x: 8.5, y: 7}
+  wallLeap: {x: 18, y: 17}
+  wallStickTime: 0.25
+  moveSpeed: 6
+  maxJumpHeight: 5
+  minJumpHeight: 1
+  timeToJumpApex: 0.5
+  wallSlideSpeedMax: 3
+  accelerationTimeAirborne: 0.2
+  accelerationTimeGrounded: 0.1
 --- !u!114 &4330386199160880408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a887bdb2b9a5341b38ab40f0a4b669e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 512
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  col: {fileID: 0}
   direction: 0
 --- !u!114 &4330386199160880409
 MonoBehaviour:
