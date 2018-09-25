@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4330386199160880410}
   - component: {fileID: 4330386199160880411}
-  - component: {fileID: 4330386199160880404}
+  - component: {fileID: 4582881877432525285}
   - component: {fileID: 4330386199160880415}
   - component: {fileID: 4330386199160880408}
   - component: {fileID: 4330386199160880409}
+  - component: {fileID: 16673616}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,27 +62,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &4330386199160880404
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &4582881877432525285
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4330386199160880405}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b991812fdf045c3a8da513c36ccd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4330386199160880415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +86,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107fe035d714449b395e1f847afce2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallJumpClimb: {x: 7.5, y: 16}
+  wallJumpOff: {x: 8.5, y: 7}
+  wallLeap: {x: 18, y: 17}
+  wallStickTime: 0.2
+  moveSpeed: 6
+  maxJumpHeight: 5
+  minJumpHeight: 1
+  timeToJumpApex: 0.5
+  wallSlideSpeedMax: 3
+  accelerationTimeAirborne: 0.2
+  accelerationTimeGrounded: 0.1
 --- !u!114 &4330386199160880408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +109,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a887bdb2b9a5341b38ab40f0a4b669e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 512
+  distanceBetweenRays: 0.25
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  col: {fileID: 0}
   direction: 0
+  maxSlopeAngle: 50
 --- !u!114 &4330386199160880409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,3 +135,15 @@ MonoBehaviour:
   bodyPartsToSpawn:
   - {fileID: 3292424940560083705, guid: 251e9add2916f48359b83ba4ba031e43, type: 3}
   - {fileID: 727136730714243667, guid: 559d2f14eeca0495dac08977b1f1a8b1, type: 3}
+--- !u!114 &16673616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330386199160880405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b991812fdf045c3a8da513c36ccd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
