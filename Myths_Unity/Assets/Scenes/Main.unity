@@ -232,6 +232,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
+  distanceBetweenRays: 0.25
   horizontalRayCount: 10
   verticalRayCount: 50
   horizontalRaySpacing: 0
@@ -1042,6 +1043,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
+  distanceBetweenRays: 0.25
   horizontalRayCount: 4
   verticalRayCount: 7
   horizontalRaySpacing: 0
@@ -1845,10 +1847,6 @@ PrefabInstance:
     - target: {fileID: 4330386199160880405, guid: 843e888f38f42481a9267d935fc11593, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4330386199160880408, guid: 843e888f38f42481a9267d935fc11593, type: 3}
-      propertyPath: maxSlopeAngle
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843e888f38f42481a9267d935fc11593, type: 3}
