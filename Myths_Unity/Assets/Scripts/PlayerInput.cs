@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(CreatureController))]
 public class PlayerInput : MonoBehaviour
 {  
-    PlayerController player;
+    CreatureController player;
     
     void Start()
     {
-        player = GetComponent<PlayerController>();    
+        player = GetComponent<CreatureController>();    
     }
 
     void Update()

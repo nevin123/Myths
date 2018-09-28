@@ -20,7 +20,7 @@ public class PlatformController : RaycastController
     float nextMoveTime;
 
     List<PassengerMovement> passengerMovement;
-    Dictionary<Transform, CreatureMotor> passengerDictionary = new Dictionary<Transform, CreatureMotor>();
+    Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
 
     public override void Start() {
         base.Start();
@@ -87,7 +87,7 @@ public class PlatformController : RaycastController
         foreach(PassengerMovement passenger in passengerMovement) {
             if(passenger.moveBeforePlatformIsMoved == beforeMovePlatform) {
                 if(!passengerDictionary.ContainsKey(passenger.transform)) {
-                   passengerDictionary.Add(passenger.transform, passenger.transform.GetComponent<CreatureMotor>()); 
+                   passengerDictionary.Add(passenger.transform, passenger.transform.GetComponent<Controller2D>()); 
                 }
                 passengerDictionary[passenger.transform].Move(passenger.velocity, passenger.standingOnPlatform); 
             }

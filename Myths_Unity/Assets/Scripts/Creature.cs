@@ -7,15 +7,15 @@ public class Creature : MonoBehaviour
     public GameObject[] bodyPartsToSpawn;
 
     //BodyParts
-    public IMovable legs;
+    public Movable movable;
 
     void Awake() {
         foreach(GameObject bodyPart in bodyPartsToSpawn) {
-            if(bodyPart.GetComponent<IBodyPart>() != null) {
+            if(bodyPart.GetComponent<BodyPartComponent>() != null) {
                 Instantiate(bodyPart, transform);
             }
         }
 
-        legs = transform.GetComponentInChildren<IMovable>();
+        movable = transform.GetComponentInChildren<Movable>();
     }
 }

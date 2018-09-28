@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3292424940560083706}
   - component: {fileID: 3292424940560083700}
-  - component: {fileID: 3292424940560083707}
+  - component: {fileID: 4110974553116014486}
+  - component: {fileID: 64883535930066417}
+  - component: {fileID: 4114162244240900665}
   m_Layer: 8
   m_Name: defaultLegs
   m_TagString: Untagged
@@ -81,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3292424940560083707
+--- !u!114 &4110974553116014486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,11 +92,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 3292424940560083705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177dca7dd0ae64df9ad60864fbbf23a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 03aca3f9a75f24d09a6569db3ca1afbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bodyPart: 0
-  isBipedal: 1
+  bodyPart: 0
+--- !u!114 &64883535930066417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292424940560083705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5ab75fb9bfb4ead831e1006ba37aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
+--- !u!114 &4114162244240900665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292424940560083705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c22a779774604c8897cbb17f9c7365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
 --- !u!1 &3780940520265060124
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,10 +161,11 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3780940520265060124}
-  serializedVersion: 5
+  serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1

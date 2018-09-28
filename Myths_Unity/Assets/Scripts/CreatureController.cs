@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CreatureMotor))]
-public class PlayerController : MonoBehaviour {
+[RequireComponent(typeof(Creature))]
+[RequireComponent(typeof(Controller2D))]
+public class CreatureController : MonoBehaviour {
 
 	float gravity;
 	float maxJumpVelocity;
 	float minJumpVelocity;
 	float velocityXSmoothing;
-	CreatureMotor motor;
+	Controller2D controller;
 
 	Vector3 velocity;
 
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed = 6;
 	public float maxJumpHeight = 2;
 	public float minJumpHeight = 1;
-	public float timeToJumpApex = 0.5f ;
+	public float timeToJumpApex = 0.5f;
 
 	public float wallSlideSpeedMax = 3;
 
@@ -31,11 +32,12 @@ public class PlayerController : MonoBehaviour {
 
 	Vector2 directionalInput;
 	
+	bool holdingJumpButton = false;
 	bool wallSliding;
 	int wallDirX;
 
 	void Start() {
-		motor = GetComponent<CreatureMotor>();
+		controller = GetComponent<Controller2D>();
 
 		gravity = -(2 * maxJumpHeight)/Mathf.Pow(timeToJumpApex,2);
 		maxJumpVelocity = Mathf.Abs(gravity * timeToJumpApex);
@@ -46,11 +48,11 @@ public class PlayerController : MonoBehaviour {
 		CalculateVelocity();
 		HandleWallSliding();
 		
-		motor.Move(velocity * Time.deltaTime, directionalInput);
+		controller.Move(velocity * Time.deltaTime, directionalInput);
 
-		if(motor.collisions.above || motor.collisions.below ) {
-			if(motor.collisions.slidingDownMaxSlope) {
-				velocity.y += motor.collisions.slopeNormal.y * -gravity * Time.deltaTime;
+		if(controller.collisions.above || controller.collisions.below ) {
+			if(controller.collisions.slidingDownMaxSlope) {
+				velocity.y += controller.collisions.slopeNormal.y * -gravity * Time.deltaTime;
 			} else {
 				velocity.y = 0;
 			}
@@ -62,7 +64,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnJumpInputDown() {
-		if(wallSliding && !motor.collisions.slidingDownMaxSlope){
+		holdingJumpButton = true;
+
+		if(wallSliding && !controller.collisions.slidingDownMaxSlope){
 			if(wallDirX == directionalInput.x) {
 				velocity.x = -wallDirX * wallJumpClimb.x;
 				velocity.y = wallJumpClimb.y;
@@ -74,11 +78,11 @@ public class PlayerController : MonoBehaviour {
 				velocity.y = wallLeap.y;
 			}
 		}
-		if(motor.collisions.below) {
-			if(motor.collisions.slidingDownMaxSlope) {
-				if(directionalInput.x != -Mathf.Sign(motor.collisions.slopeNormal.x)) {
-					velocity.y = maxJumpVelocity * motor.collisions.slopeNormal.y;
-					velocity.x = maxJumpVelocity * motor.collisions.slopeNormal.x;
+		if(controller.collisions.below) {
+			if(controller.collisions.slidingDownMaxSlope) {
+				if(directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x)) {
+					velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
+					velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
 				}
 			} else {
 				velocity.y = maxJumpVelocity;
@@ -87,6 +91,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnJumpInputUp() {
+		holdingJumpButton = false;
+
 		if(velocity.y > minJumpVelocity) {
 			velocity.y = minJumpVelocity;
 		}
@@ -94,17 +100,21 @@ public class PlayerController : MonoBehaviour {
 
 	void CalculateVelocity() {
 		float targetVelocityX = directionalInput.x * moveSpeed;
-		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (motor.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
-		velocity.y += gravity * Time.deltaTime;
+		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+		
+		if(velocity.y > 0 && holdingJumpButton) {
+			velocity.y +=  gravity * Time.deltaTime;
+		} else {
+			velocity.y += 2 * gravity * Time.deltaTime;
+		}
 	}
 
 	void HandleWallSliding() {
-		wallDirX  = (motor.collisions.left)? -1 : 1;
+		wallDirX  = (controller.collisions.left)? -1 : 1;
 		wallSliding = false;
 		
-		if((motor.collisions.left || motor.collisions.right) && !motor.collisions.below && !motor.collisions.slidingDownMaxSlope) {
+		if((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && !controller.collisions.slidingDownMaxSlope) {
 			wallSliding = true;
-			Debug.Log("wallSliding");
 
 			if(velocity.y < -wallSlideSpeedMax) {
 				velocity.y = -wallSlideSpeedMax;

@@ -2,20 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Creature))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class CreatureMotor : RaycastController {
+public class Controller2D : RaycastController {
 
-    public float direction = 0;
-    float newDirection = 0;
     float moveAmount;
 
     public float maxSlopeAngle = 60;
-
-    bool isJumping = false;
-    bool isAttacking = false;
-
-    Creature creature;
 
     public CollisionInfo collisions;
     Vector2 playerInput;
@@ -237,7 +229,6 @@ public class CreatureMotor : RaycastController {
     void SlideDownMaxSlope(RaycastHit2D hit, ref Vector2 moveAmount) {
         if(hit) {
             float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-            Debug.Log(slopeAngle);
             if(slopeAngle > maxSlopeAngle) {
                 moveAmount.x = (Mathf.Abs(moveAmount.y) - hit.distance) / Mathf.Tan(slopeAngle * Mathf.Deg2Rad) * hit.normal.x;
 
