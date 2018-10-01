@@ -1853,13 +1853,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3327430394404476346, guid: 843e888f38f42481a9267d935fc11593, type: 3}
-      propertyPath: bodyPartsToSpawn.Array.data[1]
+      propertyPath: bodyPartsToSpawn.Array.data[2]
       value: 
-      objectReference: {fileID: 3292424940560083705, guid: 251e9add2916f48359b83ba4ba031e43, type: 3}
-    - target: {fileID: 5698784593861199234, guid: 843e888f38f42481a9267d935fc11593, type: 3}
-      propertyPath: maxSlopeAngle
-      value: 50
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3292424940560083705, guid: 2cf2ca67aa1b2446ba174a0a9a0a67c9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843e888f38f42481a9267d935fc11593, type: 3}
 --- !u!224 &5173444801219785097 stripped

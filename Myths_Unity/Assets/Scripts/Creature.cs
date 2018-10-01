@@ -7,7 +7,9 @@ public class Creature : MonoBehaviour
     public GameObject[] bodyPartsToSpawn;
 
     //BodyParts
-    public Movable movable;
+    public BodyPartComponent[] allBodyParts;
+    public Movable[] movable;
+    public Body[] body;
 
     void Awake() {
         foreach(GameObject bodyPart in bodyPartsToSpawn) {
@@ -16,6 +18,8 @@ public class Creature : MonoBehaviour
             }
         }
 
-        movable = transform.GetComponentInChildren<Movable>();
+        allBodyParts = transform.GetComponentsInChildren<BodyPartComponent>();
+        movable = transform.GetComponentsInChildren<Movable>();
+        body = transform.GetComponentsInChildren<Body>();
     }
 }

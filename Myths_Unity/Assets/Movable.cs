@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Movable : Prioritizer
 {
     //Move
-    public virtual void Move(Vector2 input) {
+    public virtual void Move(Vector2 input, ref Vector2 velocity) {
         
     }
 }

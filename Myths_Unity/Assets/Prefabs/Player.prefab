@@ -75,6 +75,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPartsToSpawn:
   - {fileID: 727136730714243667, guid: 559d2f14eeca0495dac08977b1f1a8b1, type: 3}
+  - {fileID: 3292424940560083705, guid: 251e9add2916f48359b83ba4ba031e43, type: 3}
+  allBodyParts: []
+  movable: []
+  body: []
 --- !u!114 &4905211446034951727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,9 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b51f50696cea46d1a8ccd4f6967c47c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallJumpClimb: {x: 6, y: 12}
-  wallJumpOff: {x: 8, y: 5}
-  wallLeap: {x: 16, y: 14}
+  wallJumpClimb: {x: 6, y: 14}
+  wallJumpOff: {x: 9, y: 8}
+  wallLeap: {x: 20, y: 14}
   wallStickTime: 0.15
   moveSpeed: 6
   maxJumpHeight: 4
@@ -131,4 +135,4 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   col: {fileID: 0}
-  maxSlopeAngle: 60
+  maxSlopeAngle: 50

@@ -6,10 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(Controller2D))]
 public class CreatureController : MonoBehaviour {
 
-	float gravity;
-	float maxJumpVelocity;
-	float minJumpVelocity;
-	float velocityXSmoothing;
+	float gravity; //
+	float maxJumpVelocity; //
+	float minJumpVelocity; //
+	float velocityXSmoothing; //
+	Creature creature;
 	Controller2D controller;
 
 	Vector3 velocity;
@@ -20,23 +21,24 @@ public class CreatureController : MonoBehaviour {
 	public float wallStickTime = 0.15f;
 	float timeToWallUnstick;
 
-	public float moveSpeed = 6;
-	public float maxJumpHeight = 2;
-	public float minJumpHeight = 1;
-	public float timeToJumpApex = 0.5f;
+	public float moveSpeed = 6; //
+	public float maxJumpHeight = 2; //
+	public float minJumpHeight = 1; //
+	public float timeToJumpApex = 0.5f; //
 
 	public float wallSlideSpeedMax = 3;
 
-	public float accelerationTimeAirborne = 0.2f;
-	public float accelerationTimeGrounded = 0.1f;
+	public float accelerationTimeAirborne = 0.2f; //
+	public float accelerationTimeGrounded = 0.1f; //
 
 	Vector2 directionalInput;
 	
-	bool holdingJumpButton = false;
+	bool holdingJumpButton = false; //
 	bool wallSliding;
 	int wallDirX;
 
 	void Start() {
+		creature = GetComponent<Creature>();
 		controller = GetComponent<Controller2D>();
 
 		gravity = -(2 * maxJumpHeight)/Mathf.Pow(timeToJumpApex,2);

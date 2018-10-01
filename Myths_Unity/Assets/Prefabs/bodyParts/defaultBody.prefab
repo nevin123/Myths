@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 727136730714243666}
   - component: {fileID: 727136730714243665}
-  - component: {fileID: 6851402939728635386}
+  - component: {fileID: 7925962873745701860}
+  - component: {fileID: 84043367849278313}
   m_Layer: 8
   m_Name: defaultBody
   m_TagString: Untagged
@@ -80,7 +81,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6851402939728635386
+--- !u!114 &7925962873745701860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727136730714243667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03aca3f9a75f24d09a6569db3ca1afbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyPart: 0
+--- !u!114 &84043367849278313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,4 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10640c3659c04531b7d5339e14e49d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bodyPart: 0
+  priority: 0
+  headPosition: {fileID: 0}
+  LegPosition: []
+  armPosition: []
+  tailPosition: []
