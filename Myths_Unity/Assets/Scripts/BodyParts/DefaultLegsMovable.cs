@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DefaultLegsMovable : Movable
 {
-    Controller2D controller;
-
     //Variables
     float velocityXSmoothing;
     
@@ -15,11 +13,7 @@ public class DefaultLegsMovable : Movable
     public float accelerationTimeAirborne = 0.2f;
 	public float accelerationTimeGrounded = 0.1f;
 
-    public void SetControllers(Controller2D controller) {
-        this.controller = controller;
-    }
-
-    public override void Move(Vector2 input, ref Vector2 velocity) {
+    public override void Move(ref Vector2 velocity, Vector2 input) {
         float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
     }

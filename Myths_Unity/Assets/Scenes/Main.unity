@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 109627220}
   m_Layer: 9
   m_Name: movingPlatform
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109627215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.35, y: 5.04, z: 0}
+  m_LocalPosition: {x: 9.95, y: -0.7, z: 0}
   m_LocalScale: {x: 4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1032675927}
@@ -243,8 +243,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 5, z: 0}
-  - {x: -5, y: 5, z: 0}
+  - {x: -4.68, y: 10.5, z: 0}
   speed: 3
   cyclic: 1
   waitTime: 0.5
@@ -451,8 +450,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392753959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.14, y: -0.01, z: 0}
-  m_LocalScale: {x: 4, y: 5.755, z: 1}
+  m_LocalPosition: {x: -17.698, y: -0.34, z: 0}
+  m_LocalScale: {x: 15.116, y: 5.755, z: 1}
   m_Children: []
   m_Father: {fileID: 1032675927}
   m_RootOrder: 2
@@ -587,13 +586,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487064743}
-  m_LocalRotation: {x: -0, y: -0, z: -0.17086405, w: 0.98529464}
-  m_LocalPosition: {x: -4.34, y: 2.43, z: 0}
-  m_LocalScale: {x: 0.852, y: 16.5277, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.5198979, w: 0.85422844}
+  m_LocalPosition: {x: -11.09, y: 5.18, z: 0}
+  m_LocalScale: {x: 0.852, y: 21.171984, z: 1}
   m_Children: []
   m_Father: {fileID: 1032675927}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.676}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -62.651005}
 --- !u!61 &487064745
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -741,7 +740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.79, y: 0.93000007, z: -10}
+  m_LocalPosition: {x: -10.31, y: 1.18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -951,7 +950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430291861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 1.7, z: 0}
+  m_LocalPosition: {x: -0.22, y: -0.51, z: 0}
   m_LocalScale: {x: 4, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1032675927}
@@ -1053,8 +1052,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints:
-  - {x: 0, y: -2, z: 0}
-  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 10, z: 0}
   speed: 3
   cyclic: 0
   waitTime: 0.5
@@ -1800,17 +1799,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3327430394404476346, guid: 843e888f38f42481a9267d935fc11593, type: 3}
-      propertyPath: bodyPartsToSpawn.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4330386199160880410, guid: 843e888f38f42481a9267d935fc11593, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.66
+      value: -29.15
       objectReference: {fileID: 0}
     - target: {fileID: 4330386199160880410, guid: 843e888f38f42481a9267d935fc11593, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.32
+      value: 2.64
       objectReference: {fileID: 0}
     - target: {fileID: 4330386199160880410, guid: 843e888f38f42481a9267d935fc11593, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1852,10 +1847,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3327430394404476346, guid: 843e888f38f42481a9267d935fc11593, type: 3}
-      propertyPath: bodyPartsToSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 3292424940560083705, guid: 2cf2ca67aa1b2446ba174a0a9a0a67c9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843e888f38f42481a9267d935fc11593, type: 3}
 --- !u!224 &5173444801219785097 stripped

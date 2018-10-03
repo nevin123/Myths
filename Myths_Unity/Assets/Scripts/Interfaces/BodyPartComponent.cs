@@ -3,6 +3,11 @@
 public class BodyPartComponent : MonoBehaviour
 {
     public BodyPart bodyPart;
+    public Vector2 pivot;
+
+    void OnDrawGizmos() {
+        Gizmos.DrawIcon((Vector2)transform.position + pivot, "pivot", true);
+    }
 }
 
 //Enum

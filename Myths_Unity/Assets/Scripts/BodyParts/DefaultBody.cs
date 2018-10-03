@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class DefaultBody : Body
 {
-    public Transform[] LegPosition;
-    public Transform[] armPosition;
-    public Transform[] tailPosition;
+    
 }
