@@ -14,6 +14,7 @@ public class DefaultLegsMovable : Movable
 	public float accelerationTimeGrounded = 0.1f;
 
     public override void Move(ref Vector2 velocity, Vector2 input) {
+
         float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
     }

@@ -9,7 +9,7 @@ public class CreatureController : MonoBehaviour {
 	Creature creature;
 	Controller2D controller;
 
-	Vector2 velocity;
+	Vector2 velocity = Vector3.zero;
 	Vector2 directionalInput;
 	
 	void Start() {

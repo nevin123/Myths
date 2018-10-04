@@ -26,6 +26,7 @@ public class DefaultLegsJumpable : Jumpable {
     }
 
     public override void Move(ref Vector2 velocity) {
+
         if(velocity.y >= 0 && holdingJumpButton) {
 			velocity.y +=  gravity * Time.deltaTime;
 		} else {

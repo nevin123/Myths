@@ -1799,6 +1799,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3327430394404476346, guid: 843e888f38f42481a9267d935fc11593, type: 3}
+      propertyPath: bodyPartsToSpawn.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4330386199160880410, guid: 843e888f38f42481a9267d935fc11593, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.15
@@ -1847,6 +1851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3327430394404476346, guid: 843e888f38f42481a9267d935fc11593, type: 3}
+      propertyPath: bodyPartsToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 3292424940560083705, guid: b2d81f73d587f47a6b555c91daf715c8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843e888f38f42481a9267d935fc11593, type: 3}
 --- !u!224 &5173444801219785097 stripped

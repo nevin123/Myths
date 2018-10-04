@@ -6,10 +6,39 @@ using UnityEngine;
 [RequireComponent(typeof(BodyPartComponent))]
 public abstract class Body : Prioritizer
 {
-    public Transform headPosition;
+    public Vector2 headPosition;
     public BodyPartPosition[] bodyPartPositions;
 
+    public virtual int NumberOfParts(BodyPart bodyPart) {
+        int numberOfParts = 0;
+
+        foreach(BodyPartPosition bodyPartPosition in bodyPartPositions) {
+            if(bodyPartPosition.bodyPart == bodyPart) {
+                numberOfParts++;
+            }
+        }
+
+        return numberOfParts;
+    }
+
+    public virtual Vector2 GetBodyPartPosition(BodyPart bodyPart, int index) {
+        int i = 0;
+
+        foreach(BodyPartPosition bodyPartPosition in bodyPartPositions) {
+            if(bodyPartPosition.bodyPart == bodyPart) {
+                i += 1;
+                if(i == index) {
+                    return bodyPartPosition.position;
+                }
+            }
+        }
+
+        return Vector2.zero;
+    }
+
     public virtual void OnDrawGizmos() {
+        Gizmos.DrawIcon((Vector2)transform.position + headPosition, "Head", true);
+
         foreach(BodyPartPosition bodypartPosition in bodyPartPositions) {
             bodypartPosition.name = bodypartPosition.bodyPart.ToString() + "_" + 1;
 
